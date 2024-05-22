@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <style>
+        /* Existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f5f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #2980b9;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        div.container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 100%;
+            width: 400px; /* Default width */
+            box-sizing: border-box;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #2980b9;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #2471a3;
+        }
+
+        /* New styles for the garbage button */
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        li button {
+            width: 150px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background: red;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+            background: #e62222;
+            position: relative; /* Added for absolute positioning */
+            transition: background-color 0.3s, transform 200ms; /* Added transition */
+        }
+
+        li button span {
+            transition: 200ms;
+        }
+
+        li button .text {
+            transform: translateX(35px);
+            color: white;
+            font-weight: bold;
+            position: relative; /* Added for absolute positioning */
+            z-index: 1; /* Ensure text is above icon */
+        }
+
+        li button .icon {
+            position: absolute;
+            border-left: 1px solid #c41b1b;
+            transform: translateX(110px);
+            height: 40px;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        li button svg {
+            width: 15px;
+            fill: #eee;
+        }
+
+        li button:hover {
+            background: #ff3636;
+        }
+
+        li button:hover .text {
+            color: transparent;
+        }
+
+        li button:hover .icon {
+            width: 150px;
+            border-left: none;
+            transform: translateX(0);
+        }
+
+        li button:focus {
+            outline: none;
+        }
+
+        li button:active .icon svg {
+            transform: scale(0.8);
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Admin Panel</h1>
+    <div>
+        <h2>Create List</h2>
+        <input type="text" id="new-list-name" placeholder="List name">
+        <button id="create-list-button">Create List</button>
+    </div>
+    <div>
+        <h2>Manage Lists</h2>
+        <div id="lists-container"></div>
+    </div>
+</div>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

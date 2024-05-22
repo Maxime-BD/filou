@@ -1,0 +1,16 @@
+{
+  "name": "name-roller",
+  "version": "1.0.0",
+  "description": "A web app to roll names from lists with admin controls",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.0.0",
+    "sqlite3": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "uuid": "^8.3.2"
+  }
+}
